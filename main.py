@@ -2,6 +2,7 @@ import cv2
 import pytesseract
 
 
+
 #Ler imgagem
 imagem = cv2.imread('comprovante_pix.jpeg')
 
@@ -15,10 +16,13 @@ texto = pytesseract.image_to_string(imagem)
 #colocar cada linha dentro de uma posição de uma lista
 linhas = texto.split('\n')
 
-#verificar valor do pix
 for linha in linhas:
     if 'R$' in linha:
+        #Verificar valor do pix
         #print('Valor do Pix encontrado:', linha)
         #Separando a string ultilizando o separador R$ e atribuindo a posição 1, que contem o valor do pix. 
         VALOR_PIX = linha.split('R$')[1]
+
 print('Valor do Pix encontrado:', VALOR_PIX)
+
+print('lista:', linhas)
